@@ -1,26 +1,24 @@
 public class EmpWageBuilder{
-	public static int IS_FULL_TIME = 2;
-	public static int EMP_RATE_PER_HOUR = 20;
-	public static int IS_PART_TIME = 1;
+	public static final int IS_FULL_TIME = 2;		//made final for constants
+	public static final int EMP_RATE_PER_HOUR = 20;
+	public static final int IS_PART_TIME = 1;
 
 	public static void main (String[] args) {
 
 		int empHours = 0;
 		int employeeWage = 0;
 
-		double empCheck = Math.floor(Math.random() * 10) % 3;
+		int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 
-		if(empCheck==IS_FULL_TIME){
-			System.out.println("Employee is Present for full time");
-			empHours=8;
-		}
-		else if(empCheck==IS_PART_TIME) {
-			System.out.println("Employee is present for half time");
-			empHours=4;
-		}
-		else{
-			System.out.println("Employee is Absent");
-			empHours=0;
+		switch(empCheck) {
+			case IS_FULL_TIME :
+				empHours =8;
+				break;
+			case IS_PART_TIME :
+				empHours = 4;
+				break;
+			default:
+				empHours = 0;
 		}
 
 		employeeWage = empHours * EMP_RATE_PER_HOUR;
