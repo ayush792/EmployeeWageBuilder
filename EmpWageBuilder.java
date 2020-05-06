@@ -5,13 +5,15 @@ public class EmpWageBuilder{
 
 	public static void main (String[] args) {
 
-		int empHours = 0;
 		int employeeWage = 0;
 		int workingDays =20;
 		int empWorkingDay =1;
 		int totalEmployeeWage=0;
-
-		while(empWorkingDay <= workingDays) {
+		int maxHourInMonth = 100;
+		int totalEmpHours=0;
+		while(totalEmpHours < maxHourInMonth && empWorkingDay <= workingDays) {
+			int empHours=0;
+			empWorkingDay++;
 			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 			switch(empCheck) {
 				case IS_FULL_TIME :
@@ -27,7 +29,6 @@ public class EmpWageBuilder{
 			employeeWage = empHours * EMP_RATE_PER_HOUR;
 			totalEmployeeWage = totalEmployeeWage + employeeWage;
 			System.out.println("Employee Wage is :"+employeeWage);
-			empWorkingDay++;
 		}
 		System.out.println("Total monthly Employee Wage is : "+ totalEmployeeWage);
 	}
