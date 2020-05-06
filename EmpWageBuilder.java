@@ -7,21 +7,28 @@ public class EmpWageBuilder{
 
 		int empHours = 0;
 		int employeeWage = 0;
+		int workingDays =20;
+		int empWorkingDay =1;
+		int totalEmployeeWage=0;
 
-		int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+		while(empWorkingDay <= workingDays) {
+			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+			switch(empCheck) {
+				case IS_FULL_TIME :
+					empHours =8;
+					break;
+				case IS_PART_TIME :
+					empHours = 4;
+					break;
+				default:
+					empHours = 0;
+			}
 
-		switch(empCheck) {
-			case IS_FULL_TIME :
-				empHours =8;
-				break;
-			case IS_PART_TIME :
-				empHours = 4;
-				break;
-			default:
-				empHours = 0;
+			employeeWage = empHours * EMP_RATE_PER_HOUR;
+			totalEmployeeWage = totalEmployeeWage + employeeWage;
+			System.out.println("Employee Wage is :"+employeeWage);
+			empWorkingDay++;
 		}
-
-		employeeWage = empHours * EMP_RATE_PER_HOUR;
-		System.out.println("Employee Wage is : "+ employeeWage);
+		System.out.println("Total monthly Employee Wage is : "+ totalEmployeeWage);
 	}
 }
