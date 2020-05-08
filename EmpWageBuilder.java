@@ -3,7 +3,7 @@ public class EmpWageBuilder{
 	public static final int EMP_RATE_PER_HOUR = 20;
 	public static final int IS_PART_TIME = 1;
 
-	public static void main (String[] args) {
+	public static int calculate_empWage() {
 
 		int employeeWage = 0;
 		int workingDays =20;
@@ -11,6 +11,7 @@ public class EmpWageBuilder{
 		int totalEmployeeWage=0;
 		int maxHourInMonth = 100;
 		int totalEmpHours=0;
+
 		while(totalEmpHours < maxHourInMonth && empWorkingDay <= workingDays) {
 			int empHours=0;
 			empWorkingDay++;
@@ -31,5 +32,11 @@ public class EmpWageBuilder{
 			System.out.println("Employee Wage is :"+employeeWage);
 		}
 		System.out.println("Total monthly Employee Wage is : "+ totalEmployeeWage);
+		return totalEmployeeWage;
 	}
+
+	public static void main(String [] args) {
+		calculate_empWage();
+	}
+
 }
